@@ -6,9 +6,13 @@ export interface AppState {
     isLoading: boolean;
     isSubmitting: boolean;
     images: string[];
+    // eslint-disable-next-line no-unused-vars
     setLoading: (isLoading: boolean) => void;
+    // eslint-disable-next-line no-unused-vars
     setSubmitting: (isSubmitting: boolean) => void;
+    // eslint-disable-next-line no-unused-vars
     setImages: (images: string[]) => void;
+    // eslint-disable-next-line no-unused-vars
     submitPrompt: (imagePromptDTO: ImagePromptDTO) => void;
 }
 

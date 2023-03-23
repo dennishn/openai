@@ -6,7 +6,9 @@ type UserImagePrompt = Omit<ImagePromptDTO, "openAiApiKey">;
 export interface ImagePromptState {
     openAiApiKey: string;
     prompt: UserImagePrompt;
+    // eslint-disable-next-line no-unused-vars
     setOpenAiApiKey: (openAiApiKey: string) => void;
+    // eslint-disable-next-line no-unused-vars
     setUserImagePrompt: (prompt: UserImagePrompt) => void;
 }
 

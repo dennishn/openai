@@ -7,7 +7,7 @@ import { AppTopBar } from "@/components/app-shell/AppTopBar";
 import { AppBottomBar } from "@/components/app-shell/AppBottomBar";
 import { AppContent } from "@/components/app-shell/AppContent";
 import { useAppStore } from "@/lib/state/app";
-import { Box, Center, Flex, Heading, Spinner, VStack, chakra } from "@chakra-ui/react";
+import { Center, Flex, Heading, Spinner, VStack, chakra } from "@chakra-ui/react";
 import { useImagePromptStore } from "@/lib/state/image-prompt";
 import { ReactNode } from "react";
 

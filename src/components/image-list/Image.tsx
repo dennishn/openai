@@ -12,5 +12,6 @@ export const Image = ({ src, ...props }: ImageProps) => (
         objectFit="cover"
         borderRadius="md"
         overflow="hidden"
+        alt=""
     />
 );

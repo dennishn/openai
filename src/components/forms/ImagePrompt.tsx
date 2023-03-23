@@ -1,21 +1,9 @@
 import { useFormik } from "formik";
-import {
-    Box,
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    Input,
-    FormErrorIcon,
-    Button,
-    SimpleGrid,
-    HStack,
-} from "@chakra-ui/react";
+import { Box, FormControl, FormLabel, Input, Button, SimpleGrid, HStack } from "@chakra-ui/react";
 import { imagePromptSchema } from "@/lib/schemas/image-prompt";
 import { ImagePromptDTO } from "@/types/image-prompt";
 import { useAppStore } from "@/lib/state/app";
 import { useImagePromptStore } from "@/lib/state/image-prompt";
-
-type ImagePromptProps = {};
 
 type ImagePromptForm = Omit<ImagePromptDTO, "openAiApiKey">;
 
