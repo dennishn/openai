@@ -20,12 +20,9 @@ export const useAppStore = create<AppState>()((set) => ({
     setSubmitting: (isSubmitting) => set({ isSubmitting }),
     setImages: (images) => set({ images }),
     submitPrompt: async (imagePromptDTO) => {
-        console.log("submitPrompt", imagePromptDTO);
         set({ isSubmitting: true });
 
         const result = await submitImagePrompt(imagePromptDTO);
-
-        console.log("submitPrompt result", result);
 
         set({ images: result.data.map((image) => image.b64_json ?? image.url ?? "") });
         set({ isSubmitting: false });

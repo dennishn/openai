@@ -23,6 +23,8 @@ export const ImagePrompt = () => {
     const handleSubmitPrompt = useAppStore((state) => state.submitPrompt);
     const isSubmitting = useAppStore((state) => state.isSubmitting);
 
+    const setUserImagePrompt = useImagePromptStore((state) => state.setUserImagePrompt);
+
     const openAiApiKey = useImagePromptStore((state) => state.openAiApiKey);
 
     const { handleChange, handleSubmit, values, errors, touched } = useFormik<ImagePromptForm>({
@@ -33,6 +35,7 @@ export const ImagePrompt = () => {
         },
         validationSchema: imagePromptSchema,
         onSubmit: async (values) => {
+            setUserImagePrompt(values);
             await handleSubmitPrompt({ ...values, openAiApiKey });
         },
     });
@@ -50,18 +53,13 @@ export const ImagePrompt = () => {
                                 id="object"
                                 name="object"
                                 borderColor="purple.300"
+                                color="purple.300"
                                 _hover={{ borderColor: "purple.200" }}
                                 _focus={{ borderColor: "purple.200" }}
                                 value={values.object}
                                 isDisabled={isSubmitting}
                                 onChange={handleChange}
                             />
-                            {errors.object && touched.object ? (
-                                <FormErrorMessage>
-                                    <FormErrorIcon />
-                                    {errors.object}
-                                </FormErrorMessage>
-                            ) : null}
                         </Box>
                     </HStack>
                 </FormControl>
@@ -75,18 +73,13 @@ export const ImagePrompt = () => {
                                 id="artist"
                                 name="artist"
                                 borderColor="purple.300"
+                                color="purple.300"
                                 _hover={{ borderColor: "purple.200" }}
                                 _focus={{ borderColor: "purple.200" }}
                                 value={values.artist}
                                 isDisabled={isSubmitting}
                                 onChange={handleChange}
                             />
-                            {errors.artist && touched.artist ? (
-                                <FormErrorMessage>
-                                    <FormErrorIcon />
-                                    {errors.artist}
-                                </FormErrorMessage>
-                            ) : null}
                         </Box>
                     </HStack>
                 </FormControl>
@@ -100,29 +93,24 @@ export const ImagePrompt = () => {
                                 id="color"
                                 name="color"
                                 borderColor="purple.300"
+                                color="purple.300"
                                 _hover={{ borderColor: "purple.200" }}
                                 _focus={{ borderColor: "purple.200" }}
-                                color="purple.300"
                                 value={values.color}
                                 isDisabled={isSubmitting}
                                 onChange={handleChange}
                             />
-                            {errors.color && touched.color ? (
-                                <FormErrorMessage>
-                                    <FormErrorIcon />
-                                    {errors.color}
-                                </FormErrorMessage>
-                            ) : null}
                         </Box>
                     </HStack>
                 </FormControl>
                 <Button
+                    ml="auto"
                     type="submit"
-                    isLoading={isSubmitting}
+                    isLoading={openAiApiKey.length < 1 || isSubmitting}
                     loadingText="Submitting"
                     colorScheme="purple"
                 >
-                    Submit
+                    Generate
                 </Button>
             </SimpleGrid>
         </form>

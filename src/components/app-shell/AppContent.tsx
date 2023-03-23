@@ -7,7 +7,7 @@ type AppContentProps = {
 
 export const AppContent = ({ children }: AppContentProps) => (
     <GridItem area="content">
-        <Center height="100%" bg="purple.800">
+        <Center height="100%" bg="purple.800" p={4}>
             {children}
         </Center>
     </GridItem>

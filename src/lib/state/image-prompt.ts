@@ -11,7 +11,7 @@ export interface ImagePromptState {
 }
 
 export const useImagePromptStore = create<ImagePromptState>()((set) => ({
-    openAiApiKey: "",
+    openAiApiKey: process.env.NEXT_PUBLIC_OPEN_AI_API_KEY || "",
     prompt: {
         object: "",
         artist: "",
