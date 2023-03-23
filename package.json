@@ -26,7 +26,8 @@
     "react-dom": "18.2.0",
     "typescript": "4.9.5",
     "wretch": "^2.5.1",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "zustand": "^4.3.6"
   },
   "devDependencies": {
     "@akqa-denmark/eslint-config-akqa-dk": "^0.0.1",
