@@ -29,7 +29,7 @@ export default async function imageApiHandler(
     }
 
     const openAiConfiguration = new Configuration({
-        apiKey: process.env.OPEN_AI_API_KEY,
+        apiKey: openAiApiKey,
     });
 
     const openAiClient = new OpenAIApi(openAiConfiguration);
